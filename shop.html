@@ -1,0 +1,28 @@
+---
+layout: page
+wide: true
+title: Shop
+eyebrow: For sale
+intro: Pieces ready to take home, plus favorites we build to order. There's no online checkout. Call or email to buy, and pick up at the shop in Athens or at market.
+permalink: /shop/
+---
+{% assign forsale = site.pieces | where_exp: "p", "p.status != 'sold'" | sort: "order" %}
+{% assign cats = forsale | map: "category" | uniq | sort %}
+<div class="filters" role="group" aria-label="Filter by category">
+  <button type="button" aria-pressed="true" data-filter="all">All</button>
+  {% for c in cats %}<button type="button" aria-pressed="false" data-filter="{{ c | slugify }}">{{ c }}</button>{% endfor %}
+</div>
+<div class="grid" id="shop-grid">
+  {% for p in forsale %}{% include piece-card.html piece=p %}{% endfor %}
+</div>
+<script>
+  document.querySelectorAll('.filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.dataset.filter;
+      document.querySelectorAll('.filters button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+      document.querySelectorAll('#shop-grid .card').forEach(function (c) {
+        c.hidden = f !== 'all' && c.dataset.category !== f;
+      });
+    });
+  });
+</script>

@@ -1,0 +1,12 @@
+{% assign p = include.piece %}
+<a class="card" href="{{ p.url | relative_url }}" data-category="{{ p.category | slugify }}">
+  <div class="card-media">
+    {% include piece-image.html piece=p size="thumb" %}
+    {% include status.html piece=p %}
+  </div>
+  <div class="card-body">
+    <h3>{{ p.title }}</h3>
+    <p>{{ p.summary }}</p>
+    <p class="card-price">{% if p.status == "sold" %}Sold, ask about another{% elsif p.price %}{{ p.price }}{% else %}Call for price{% endif %}</p>
+  </div>
+</a>

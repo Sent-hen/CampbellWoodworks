@@ -1,0 +1,31 @@
+---
+layout: page
+wide: true
+title: Contact
+eyebrow: Say howdy
+intro: Questions about a piece, a custom order, or where we'll be next? Call, text, or email Michael directly.
+permalink: /contact/
+---
+<div class="contact-grid">
+  <div class="contact-card">
+    <h3>Call or text</h3>
+    <p><a href="tel:{{ site.contact.phone_link }}">{{ site.contact.phone }}</a></p>
+  </div>
+  <div class="contact-card">
+    <h3>Email</h3>
+    <p><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+  </div>
+  <div class="contact-card">
+    <h3>Shop</h3>
+    <p>{{ site.contact.address }}<br>{{ site.contact.city }}<br>
+      <a href="https://www.google.com/maps/search/?api=1&query={{ site.contact.address | append: ', ' | append: site.contact.city | uri_escape }}" rel="noopener">Get directions</a></p>
+  </div>
+  <div class="contact-card">
+    <h3>Facebook</h3>
+    <p><a href="{{ site.contact.facebook }}" rel="noopener">Campbell Woodworks</a></p>
+  </div>
+</div>
+<div class="prose">
+  <h2>Ordering a custom piece</h2>
+  <p>Tell us what you're after: the piece, the size, and the stain color. A photo of the spot it's going helps too. We'll give you a price and a timeframe. Pickup is at the shop in Athens or at the market.</p>
+</div>

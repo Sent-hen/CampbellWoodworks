@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img class="footer-logo" src="{{ '/assets/img/logo-swing.png' | relative_url }}" alt="" width="72" height="85">
+      <p class="footer-name">{{ site.title }}</p>
+      <p>{{ site.contact.owner }}</p>
+    </div>
+    <div>
+      <h2>Visit or write</h2>
+      <p>{{ site.contact.address }}<br>{{ site.contact.city }}</p>
+      <p><a href="tel:{{ site.contact.phone_link }}">{{ site.contact.phone }}</a><br>
+         <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+    </div>
+    <div>
+      <h2>Find us at market</h2>
+      <p>{% for m in site.markets %}{{ m.name }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+      <p><a href="{{ site.contact.facebook }}" rel="noopener">Follow on Facebook</a> for market dates and new pieces.</p>
+    </div>
+  </div>
+  <p class="wrap fine">&copy; {{ site.time | date: "%Y" }} {{ site.title }} &middot; Handmade in Athens, Texas</p>
+</footer>

@@ -1,0 +1,2 @@
+{% assign s = include.piece.status | default: "available" %}
+<span class="tag tag-{{ s }}">{% case s %}{% when "sold" %}Sold{% when "custom" %}Made to order{% else %}Available{% endcase %}</span>

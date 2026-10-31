@@ -1,0 +1,56 @@
+---
+title: Handmade outdoor furniture in Athens, Texas
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Athens, Texas &middot; Handmade</p>
+      <h1>Built by hand, <em>built to sit on.</em></h1>
+      <p class="lede">Adirondack chairs, porch swings, farmhouse tables, planters, bird feeders and Texas tic-tac-toe boards, built and stained by {{ site.contact.owner }} in Athens, Texas.</p>
+      <div class="hero-actions">
+        <a class="btn" href="{{ '/shop/' | relative_url }}">See what's for sale</a>
+        <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Ask about a custom piece</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="{{ '/images/pieces/adirondack-chair-front.jpg' | relative_url }}" alt="A stained pine Adirondack chair at the market booth">
+      <span class="hand">Come sit a spell!</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Fresh from the shop</h2>
+      <a href="{{ '/shop/' | relative_url }}">See everything &rarr;</a>
+    </div>
+    {% assign featured = site.pieces | where: "featured", true | sort: "order" %}
+    <div class="grid">
+      {% for p in featured limit: 6 %}{% include piece-card.html piece=p %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">What we make</p>
+      <h2>Porch, yard and home</h2>
+      <p>Every piece is cut, sanded and stained by hand from sturdy pine, then built to stand up to Texas weather. If you don't see the size or color you want, ask. Most things can be made to order.</p>
+      <ul class="makes">
+        <li>Adirondack chairs</li><li>Porch swings</li><li>Gliders &amp; rockers</li><li>Farmhouse tables</li>
+        <li>Planters</li><li>Bird feeders</li><li>Grill caddies</li><li>Tic-tac-toe boards</li><li>Holiday decor</li>
+      </ul>
+    </div>
+    <div class="market-card">
+      <p class="eyebrow">Find us in person</p>
+      <h3>At the farmers markets</h3>
+      <ul class="market-list">
+        {% for m in site.markets %}<li><strong>{{ m.name }}</strong><span>{{ m.when }}</span></li>{% endfor %}
+      </ul>
+      <p>Come sit in a chair, see the pieces up close, and talk with Michael about custom work.</p>
+      <p><a href="{{ site.contact.facebook }}" rel="noopener">Market dates are posted on Facebook &rarr;</a></p>
+    </div>
+  </div>
+</section>

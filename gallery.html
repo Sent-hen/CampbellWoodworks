@@ -1,0 +1,12 @@
+---
+layout: page
+wide: true
+title: Our Work
+eyebrow: Gallery
+intro: Pieces we've built over the years, including ones that have already gone home with someone. See something you like? We can usually build another.
+permalink: /gallery/
+---
+<div class="grid">
+  {% assign all = site.pieces | sort: "order" %}
+  {% for p in all %}{% include piece-card.html piece=p %}{% endfor %}
+</div>

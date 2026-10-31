@@ -1,0 +1,10 @@
+{% assign p = include.piece %}
+{% if p.image %}
+<img class="piece-img {{ include.size }}" src="{{ p.image | relative_url }}" alt="{{ p.image_alt | default: p.title }}"{% if include.size != "large" %} loading="lazy"{% endif %}>
+{% else %}
+<div class="piece-img placeholder {{ include.size }}" role="img" aria-label="Photo of {{ p.title }} coming soon">
+  <img src="{{ '/assets/img/logo-swing.png' | relative_url }}" alt="">
+  <span>{{ p.title }}</span>
+  <small>photo coming soon</small>
+</div>
+{% endif %}

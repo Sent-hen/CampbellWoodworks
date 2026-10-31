@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------
+# Campbell Woodworks — site settings
+# Edit the values below; restart `jekyll serve` after changes here.
+# ---------------------------------------------------------------
+title: Campbell Woodworks
+tagline: Handmade outdoor furniture & woodwork from Athens, Texas
+description: >-
+  Porch swings, Adirondack chairs, benches and custom woodwork, built by hand
+  in Athens, TX. Find us at the Mabank Farmers Market or order direct.
+
+# Leave url blank and set baseurl to "/CampbellWoodworks" for
+# https://sent-hen.github.io/CampbellWoodworks/. If you add a custom
+# domain later, set url to it and baseurl to "".
+url: ""
+baseurl: "/CampbellWoodworks"
+
+contact:
+  phone: "(903) 681-2639"
+  phone_link: "+19036812639"
+  email: campmwc@aol.com
+  owner: Michael Campbell
+  address: 2115 Live Oak Street
+  city: Athens, Texas 75751
+  facebook: https://www.facebook.com/100029157323191/
+
+markets:
+  - name: Athens TX Farmers Market
+    when: Saturdays, 9 to noon, in season
+  - name: Mabank Farmers Market
+    when: Saturday mornings until noon, on Market Street
+  - name: ATxFM Hometown Holiday Market
+    when: Each holiday season at The Cain Center, Athens
+
+collections:
+  pieces:
+    output: true
+    permalink: /pieces/:name/
+
+defaults:
+  - scope: { path: "", type: pieces }
+    values: { layout: piece }
+  - scope: { path: "" }
+    values: { layout: default }
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

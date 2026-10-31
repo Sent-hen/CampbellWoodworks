@@ -1,0 +1,18 @@
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/img/logo-swing.png' | relative_url }}" alt="" width="44" height="52">
+      <span>{{ site.title }}</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span></label>
+    <nav class="site-nav" aria-label="Main">
+      {% assign links = "Shop|/shop/,Our Work|/gallery/,About|/about/,Contact|/contact/" | split: "," %}
+      {% for l in links %}{% assign parts = l | split: "|" %}
+      <a href="{{ parts[1] | relative_url }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
+      {% endfor %}
+      <a class="nav-call" href="tel:{{ site.contact.phone_link }}">{{ site.contact.phone }}</a>
+    </nav>
+  </div>
+</header>

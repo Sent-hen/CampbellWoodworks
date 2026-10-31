@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% assign piece = page %}
+<article class="piece wrap">
+  <p class="crumbs"><a href="{{ '/shop/' | relative_url }}">&larr; Back to the shop</a></p>
+  <div class="piece-grid">
+    <div class="piece-media">
+      {% include piece-image.html piece=piece size="large" %}
+      {% if piece.gallery %}
+      <div class="piece-thumbs">
+        {% for img in piece.gallery %}
+        <a href="{{ img | relative_url }}"><img src="{{ img | relative_url }}" alt="{{ piece.title }}, photo {{ forloop.index | plus: 1 }}"></a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="piece-info">
+      <p class="eyebrow">{{ piece.category }}</p>
+      <h1>{{ piece.title }}</h1>
+      {% include status.html piece=piece %}
+      <p class="price">{% if piece.price %}{{ piece.price }}{% else %}Call for price{% endif %}</p>
+      <div class="prose">{{ content }}</div>
+      {% if piece.details %}
+      <ul class="details">
+        {% for d in piece.details %}<li>{{ d }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      <div class="cta-row">
+        <a class="btn" href="tel:{{ site.contact.phone_link }}">Call {{ site.contact.phone }}</a>
+        <a class="btn btn-ghost" href="mailto:{{ site.contact.email }}?subject={{ 'Question about the ' | append: piece.title | uri_escape }}">Email about this piece</a>
+      </div>
+      <p class="note">No online checkout. Call or email to buy, hold a piece for pickup at market, or ask for one in a different size or stain.</p>
+    </div>
+  </div>
+</article>
